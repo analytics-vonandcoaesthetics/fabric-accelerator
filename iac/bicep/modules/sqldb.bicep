@@ -5,7 +5,7 @@ param sqlserver_name string
 param database_name string
 
 @description('Azure Location SQL Server')
-param location string = resourceGroup().location
+param location string = 'EastUS2'  // Corrected region name for Azure //resourceGroup().location
 
 @description('Cost Centre tag that will be applied to all resources in this deployment')
 param cost_centre_tag string
