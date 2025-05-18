@@ -5,7 +5,7 @@ param sqlserver_name string
 param database_name string
 
 @description('Azure Location SQL Server')
-param location string = 'EastUS2'  // Corrected region name for Azure //resourceGroup().location
+param location string = 'eastus2'  // Corrected region name for Azure //resourceGroup().location
 
 @description('Cost Centre tag that will be applied to all resources in this deployment')
 param cost_centre_tag string
@@ -52,7 +52,7 @@ var sqlserver_unique_name = '${sqlserver_name}-${suffix}'
 // Deploy SQL Server
 resource sqlserver 'Microsoft.Sql/servers@2023-08-01-preview' ={
   name: sqlserver_unique_name
-  location: location
+  location: 'eastus2'//location
   tags: {
     CostCentre: cost_centre_tag
     Owner: owner_tag
@@ -85,7 +85,7 @@ resource allowAzure_Firewall 'Microsoft.Sql/servers/firewallRules@2021-11-01' ={
 // Deploy database
 resource database 'Microsoft.Sql/servers/databases@2021-11-01' ={
   name: database_name
-  location: location
+  location: 'eastus2'//location
   tags: {
     CostCentre: cost_centre_tag
     Owner: owner_tag
